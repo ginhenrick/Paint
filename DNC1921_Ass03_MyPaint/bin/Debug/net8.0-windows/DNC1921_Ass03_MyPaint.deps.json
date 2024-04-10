@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "DNC1921_Ass03_MyPaint/1.0.0": {
+        "runtime": {
+          "DNC1921_Ass03_MyPaint.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "DNC1921_Ass03_MyPaint/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

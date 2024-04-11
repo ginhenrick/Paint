@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             splitContainer1 = new SplitContainer();
+            btnSave = new Button();
             groupBox2 = new GroupBox();
             btnFillColor = new Button();
             label4 = new Label();
@@ -57,6 +58,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            splitContainer1.Panel1.Controls.Add(btnSave);
             splitContainer1.Panel1.Controls.Add(groupBox2);
             splitContainer1.Panel1.Controls.Add(groupBox1);
             splitContainer1.Panel1.Controls.Add(cboType);
@@ -68,6 +70,16 @@
             splitContainer1.Size = new Size(834, 476);
             splitContainer1.SplitterDistance = 277;
             splitContainer1.TabIndex = 0;
+            // 
+            // btnSave
+            // 
+            btnSave.Location = new Point(83, 372);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(130, 43);
+            btnSave.TabIndex = 8;
+            btnSave.Text = "Save File";
+            btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // groupBox2
             // 
@@ -158,7 +170,7 @@
             cboType.Font = new Font("Segoe UI", 12F);
             cboType.ForeColor = Color.Black;
             cboType.FormattingEnabled = true;
-            cboType.Items.AddRange(new object[] { "Text", "Line", "Rectangle", "Fill Rectangle", "Ellipse", "Fill Ellipse", "Parallelogram", "Fill Parallelogram", "Rhombus", "Fill Rhombus", "Circle", "Fill Circle" });
+            cboType.Items.AddRange(new object[] { "Text", "Line", "Rectangle", "Fill Rectangle", "Ellipse", "Fill Ellipse", "Parallelogram", "Parallelogram_Horizontal", "Parallelogram_PathGradientBrush", "Parallelogram_TextureBrush", "Parallelogram_HatchBrush", "Rhombus", "Rhombus_Horizontal", "Rhombus_PathGradientBrush", "Rhombus_TextureBrush", "Rhombus_HatchBrush", "Circle", "Fill Circle" });
             cboType.Location = new Point(16, 56);
             cboType.Name = "cboType";
             cboType.Size = new Size(236, 36);
@@ -184,6 +196,7 @@
             panelKhungVe.Name = "panelKhungVe";
             panelKhungVe.Size = new Size(553, 476);
             panelKhungVe.TabIndex = 0;
+            panelKhungVe.Paint += panelKhungVe_Paint;
             panelKhungVe.MouseDown += panelKhungVe_MouseDown;
             panelKhungVe.MouseUp += panelKhungVe_MouseUp;
             panelKhungVe.Resize += FrmMain_ResizeEnd;
@@ -225,5 +238,6 @@
         private ComboBox cboType;
         private Label label1;
         private Panel panelKhungVe;
+        private Button btnSave;
     }
 }

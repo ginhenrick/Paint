@@ -13,8 +13,8 @@ namespace DNC1921_Ass03_MyPaint
         public Point endPoint { get; set; }
         public Pen? Pen { get; set; }
         public SolidBrush? SolidBrush { get; set; }
+        public Brush? FillBrush { get; set; }
         public abstract void Draw(Graphics g);
-        public abstract void Resize(Point newEndPoint);
     }
 
     public class MyLine : MyShape
@@ -23,20 +23,13 @@ namespace DNC1921_Ass03_MyPaint
         {
             g.DrawLine(Pen, startPoint, endPoint);
         }
-        public override void Resize(Point newEndPoint)
-        {
-            endPoint = newEndPoint;
-        }
+       
     }
 
     public class MyRectangle : MyShape
     {
         public override void Draw(Graphics g) {
             
-        }
-        public override void Resize(Point newEndPoint)
-        {
-            endPoint = newEndPoint;
         }
     }
 
@@ -45,46 +38,43 @@ namespace DNC1921_Ass03_MyPaint
         public override void Draw(Graphics g) {
             
         }
-        public override void Resize(Point newEndPoint)
-        {
-            endPoint = newEndPoint;
-        }
     }
 
-    public class MyParallelogram : MyShape { 
-        public override void Draw(Graphics g) { }
-        public override void Resize(Point newEndPoint)
+    public class MyParallelogram : MyShape {
+        public override void Draw(Graphics g)
         {
-            endPoint = newEndPoint;
-        }
+
+            Point[] points = new Point[4];
+            points[0] = startPoint;
+            points[1] = new Point(startPoint.X + (endPoint.X - startPoint.X) / 2, endPoint.Y);
+            points[2] = endPoint;
+            points[3] = new Point(endPoint.X - (endPoint.X - startPoint.X) / 2, startPoint.Y);
+
+            // Vẽ parallelogram
+            g.DrawPolygon(Pen, points);
+            if (FillBrush != null)
+                g.FillPolygon(FillBrush, points);
+        }      
     }
 
-    public class MyFillParallelogram : MyShape
-    {
-        public override void Draw(Graphics g) { }
-        public override void Resize(Point newEndPoint)
-        {
-            endPoint = newEndPoint;
-        }
-    }
-
+  
     public class MyRhombus : MyShape
     {
-        public override void Draw(Graphics g) { }
-        public override void Resize(Point newEndPoint)
-        {
-            endPoint = newEndPoint;
+        public override void Draw(Graphics g) {
+            Point[] points = new Point[4];
+            points[0] = new Point((startPoint.X + endPoint.X) / 2, startPoint.Y);
+            points[1] = new Point(endPoint.X, (startPoint.Y + endPoint.Y) / 2);
+            points[2] = new Point((startPoint.X + endPoint.X) / 2, endPoint.Y);
+            points[3] = new Point(startPoint.X, (startPoint.Y + endPoint.Y) / 2);
+
+            //Vẽ rhombus
+            g.DrawPolygon(Pen, points);
+            if (FillBrush != null)
+                g.FillPolygon(FillBrush, points);
         }
     }
 
-    public class MyFillRhombus : MyShape
-    {
-        public override void Draw(Graphics g) { }
-        public override void Resize(Point newEndPoint)
-        {
-            endPoint = newEndPoint;
-        }
-    }
+   
 
     public class MyEllipse : MyShape
     {
@@ -95,10 +85,7 @@ namespace DNC1921_Ass03_MyPaint
             int height = Math.Abs(startPoint.Y - endPoint.Y);
             g.DrawEllipse(Pen, xLoc, yLoc, width, height);
         }
-        public override void Resize(Point newEndPoint)
-        {
-            endPoint = newEndPoint;
-        }
+       
     }
 
     public class MyFillEllipse : MyShape
@@ -112,10 +99,6 @@ namespace DNC1921_Ass03_MyPaint
             g.FillEllipse(SolidBrush, xLoc, yLoc, width, height);
 
         }
-        public override void Resize(Point newEndPoint)
-        {
-            endPoint = newEndPoint;
-        }
     }
 
     public class MyCircle : MyShape
@@ -127,10 +110,6 @@ namespace DNC1921_Ass03_MyPaint
             int xLoc = startPoint.X + (endPoint.X - startPoint.X) / 2 - radius;
             int yLoc = startPoint.Y + (endPoint.Y - startPoint.Y) / 2 - radius;
             g.DrawEllipse(Pen, xLoc, yLoc, diameter, diameter);
-        }
-        public override void Resize(Point newEndPoint)
-        {
-            endPoint = newEndPoint;
         }
     }
 
@@ -144,10 +123,6 @@ namespace DNC1921_Ass03_MyPaint
             int yLoc = startPoint.Y + (endPoint.Y - startPoint.Y) / 2 - radius;
             g.DrawEllipse(Pen, xLoc, yLoc, diameter, diameter);
             g.FillEllipse(SolidBrush, xLoc, yLoc, diameter, diameter);
-        }
-        public override void Resize(Point newEndPoint)
-        {
-            endPoint = newEndPoint;
         }
     }
 

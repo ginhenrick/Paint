@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "D:\\Winforms\\DNC1921_Ass03_MyPaint\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{27A85AAA-6659-4BC2-8AFB-4F9DE654BE37}|DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj|d:\\winforms\\dnc1921_ass03_mypaint\\dnc1921_ass03_mypaint\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{27A85AAA-6659-4BC2-8AFB-4F9DE654BE37}|DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj|solutionrelative:dnc1921_ass03_mypaint\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{27A85AAA-6659-4BC2-8AFB-4F9DE654BE37}|DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj|D:\\Winforms\\DNC1921_Ass03_MyPaint\\dnc1921_ass03_mypaint\\shape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27A85AAA-6659-4BC2-8AFB-4F9DE654BE37}|DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj|solutionrelative:dnc1921_ass03_mypaint\\shape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{27A85AAA-6659-4BC2-8AFB-4F9DE654BE37}|DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj|D:\\Winforms\\DNC1921_Ass03_MyPaint\\dnc1921_ass03_mypaint\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{27A85AAA-6659-4BC2-8AFB-4F9DE654BE37}|DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj|solutionrelative:dnc1921_ass03_mypaint\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{27A85AAA-6659-4BC2-8AFB-4F9DE654BE37}|DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj|D:\\Winforms\\DNC1921_Ass03_MyPaint\\dnc1921_ass03_mypaint\\shape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{27A85AAA-6659-4BC2-8AFB-4F9DE654BE37}|DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj|solutionrelative:dnc1921_ass03_mypaint\\shape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{27A85AAA-6659-4BC2-8AFB-4F9DE654BE37}|DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj|d:\\winforms\\dnc1921_ass03_mypaint\\dnc1921_ass03_mypaint\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27A85AAA-6659-4BC2-8AFB-4F9DE654BE37}|DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj|solutionrelative:dnc1921_ass03_mypaint\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,25 +30,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Shape.cs",
               "DocumentMoniker": "D:\\Winforms\\DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint\\Shape.cs",
               "RelativeDocumentMoniker": "DNC1921_Ass03_MyPaint\\Shape.cs",
               "ToolTip": "D:\\Winforms\\DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint\\Shape.cs",
               "RelativeToolTip": "DNC1921_Ass03_MyPaint\\Shape.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAuAAAA",
+              "ViewState": "AQIAACQAAAAAAAAAAAA4wDkAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-08T07:06:51.245Z"
+              "WhenOpened": "2024-04-08T07:06:51.245Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Form1.cs",
               "DocumentMoniker": "D:\\Winforms\\DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint\\Form1.cs",
               "RelativeDocumentMoniker": "DNC1921_Ass03_MyPaint\\Form1.cs",
               "ToolTip": "D:\\Winforms\\DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint\\Form1.cs",
               "RelativeToolTip": "DNC1921_Ass03_MyPaint\\Form1.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAQwBIAAAAWAAAA",
+              "ViewState": "AQIAAKYAAAAAAAAAAADwv2IAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-08T06:56:23.492Z",
               "EditorCaption": ""
@@ -62,7 +63,8 @@
               "ToolTip": "D:\\Winforms\\DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint\\Form1.cs [Design]",
               "RelativeToolTip": "DNC1921_Ass03_MyPaint\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-06T13:00:57.548Z"
+              "WhenOpened": "2024-04-06T13:00:57.548Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

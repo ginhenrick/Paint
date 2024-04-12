@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DLL\\Desktop\\Paint\\DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj": {}
+    "D:\\Winforms\\DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DLL\\Desktop\\Paint\\DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj": {
+    "D:\\Winforms\\DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DLL\\Desktop\\Paint\\DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj",
+        "projectUniqueName": "D:\\Winforms\\DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj",
         "projectName": "DNC1921_Ass03_MyPaint",
-        "projectPath": "C:\\Users\\DLL\\Desktop\\Paint\\DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj",
-        "packagesPath": "C:\\Users\\DLL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DLL\\Desktop\\Paint\\DNC1921_Ass03_MyPaint\\obj\\",
+        "projectPath": "D:\\Winforms\\DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj",
+        "packagesPath": "C:\\Users\\MSI\\.nuget\\packages\\",
+        "outputPath": "D:\\Winforms\\DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\DLL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\MSI\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

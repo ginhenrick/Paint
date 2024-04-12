@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Net;
@@ -47,7 +48,14 @@ namespace DNC1921_Ass03_MyPaint
         {
             startPoint = e.Location;
         }
-
+        private Dictionary<int, List<string>> brushTypeItems = new Dictionary<int, List<string>>
+            {
+                { 2, new List<string> { "Rectangle_BackwardDiagonal", "Rectangle_PathGradientBrush", "Rectangle_TextureBrush", "Rectangle_HatchBrush" } },
+                { 4, new List<string> { "Ellipse_BackwardDiagonal", "Ellipse_PathGradientBrush", "Ellipse_TextureBrush", "Ellipse_HatchBrush" } },
+                { 6, new List<string> { "Parallelogram_BackwardDiagonal", "Parallelogram_PathGradientBrush", "Parallelogram_TextureBrush", "Parallelogram_HatchBrush" } },
+                { 8, new List<string> { "Rhombus_BackwardDiagonal", "Rhombus_PathGradientBrush", "Rhombus_TextureBrush", "Rhombus_HatchBrush" } },
+                { 10, new List<string> { "Circle_BackwardDiagonal", "Circle_PathGradientBrush", "Circle_TextureBrush", "Circle_HatchBrush" } }
+            };
         private void panelKhungVe_MouseUp(object sender, MouseEventArgs e)
         {
             Pen myPen = new Pen(BorderColor, float.Parse(nudBorderSize.Value.ToString()));
@@ -59,19 +67,44 @@ namespace DNC1921_Ass03_MyPaint
             SolidBrush brush = new SolidBrush(FillColor);
             switch (cboType.SelectedIndex)
             {
-                case 0: // Text
-                        // Handle text drawing logic here (e.g., using g.DrawString)
+                //text
+                case 0:
                     break;
-                case 1: // Line
+
+                //line
+                case 1:
+                    g.DrawLine(myPen, startPoint, e.Location);
+                    break;
+
+                //rectangle
+                case 2:
+                    g.DrawRectangle(myPen, xLoc, yLoc, width, height);
+                    shapes.Add(new MyRectangle
+                    {
+                        startPoint = startPoint,
+                        endPoint = e.Location,
+                        Pen = myPen,
+                        SolidBrush = brush
+                    });
 
                     break;
-                case 2: // Rectangle
+
+                //fill rectangle
+                case 3:
+
+                    g.FillRectangle(brush, xLoc, yLoc, width, height);
+                    shapes.Add(new MyFillRectangle
+                    {
+                        startPoint = startPoint,
+                        endPoint = e.Location,
+                        Pen = myPen,
+                        SolidBrush = brush
+                    });
 
                     break;
-                case 3: // Fill Rectangle
 
-                    break;
-                case 4: // Ellipse
+                //ellipse
+                case 4:
                     g.DrawEllipse(myPen, xLoc, yLoc, width, height);
                     shapes.Add(new MyEllipse
                     {
@@ -81,7 +114,9 @@ namespace DNC1921_Ass03_MyPaint
                         SolidBrush = brush
                     });
                     break;
-                case 5: // Fill Ellipse
+
+                //fill ellipse
+                case 5:
                     g.FillEllipse(brush, xLoc, yLoc, width, height);
                     shapes.Add(new MyFillEllipse
                     {
@@ -91,7 +126,9 @@ namespace DNC1921_Ass03_MyPaint
                         SolidBrush = brush
                     });
                     break;
-                case 6: // Parallelogram(Hình bình hành)
+
+                //parallelogram
+                case 6:
                     g.DrawPolygon(myPen, new Point[] {
                     startPoint,
                      new Point(startPoint.X + (e.Location.X - startPoint.X) / 2, e.Location.Y),
@@ -105,124 +142,34 @@ namespace DNC1921_Ass03_MyPaint
                         Pen = myPen,
                         SolidBrush = brush
                     });
+
                     break;
 
-                case 7: // Parallelogram (Hình bình hành) với LinearGradientBrush
-                    GraphicsPath parallelogramPath = new GraphicsPath();
-                    parallelogramPath.AddPolygon(new Point[] {
-                    startPoint,
-                    new Point(startPoint.X + (e.Location.X - startPoint.X) / 2, e.Location.Y),
-                    e.Location,
-                    new Point(e.Location.X - (e.Location.X - startPoint.X) / 2, startPoint.Y)
+                // fill parallelogram
+                case 7:
+                    g.DrawPolygon(myPen, new Point[] {
+                        startPoint,
+                        new Point(startPoint.X + (e.Location.X - startPoint.X) / 2, e.Location.Y),
+                        e.Location,
+                        new Point(e.Location.X - (e.Location.X - startPoint.X) / 2, startPoint.Y)
                     });
-
-                    LinearGradientMode gradientMode;
-                    gradientMode = LinearGradientMode.Horizontal;
-
-                    // Tạo LinearGradientBrush với chế độ gradient được chọn
-                    LinearGradientBrush linearGradientBrush = new LinearGradientBrush(
-                        new Rectangle(xLoc, yLoc, width, height), // Điểm bắt đầu và kích thước của hình bình hành
-                        FillColor, // Màu FillColor ở đầu
-                        Color.White, // Màu trắng ở cuối
-                        gradientMode); // Chế độ gradient
-
-                    // Tô màu cho hình bình hành
-                    g.DrawPath(myPen, parallelogramPath); // Vẽ hình bình hành với đường viền
-                    g.FillPath(linearGradientBrush, parallelogramPath); // Tô màu bằng LinearGradientBrush
-                    shapes.Add(new MyParallelogram
+                                    g.FillPolygon(brush, new Point[] {
+                        startPoint,
+                        new Point(startPoint.X + (e.Location.X - startPoint.X) / 2, e.Location.Y),
+                        e.Location,
+                        new Point(e.Location.X - (e.Location.X - startPoint.X) / 2, startPoint.Y)
+                    });
+                    shapes.Add(new MyFillParallelogram
                     {
                         startPoint = startPoint,
                         endPoint = e.Location,
                         Pen = myPen,
-                        FillBrush = linearGradientBrush // Gán LinearGradientBrush vào FillBrush của hình
+                        SolidBrush = brush
                     });
                     break;
 
-                case 8: // Parallelogram(Hình bình hành) với PathGradientBrush 
-                    GraphicsPath parallelogramPat = new GraphicsPath();
-                    parallelogramPat.AddPolygon(new Point[] {
-                    startPoint,
-                    new Point(startPoint.X + (e.Location.X - startPoint.X) / 2, e.Location.Y),
-                    e.Location,
-                    new Point(e.Location.X - (e.Location.X - startPoint.X) / 2, startPoint.Y)
-                    });
-
-                    PathGradientBrush pathGradientBrush;
-
-                    pathGradientBrush = new PathGradientBrush(parallelogramPat);
-
-                    Color[] colors = { FillColor, Color.White };
-
-                    pathGradientBrush.CenterColor = FillColor;
-
-
-                    pathGradientBrush.SurroundColors = new Color[] { Color.White };
-
-                    // Fill the Parallelogram shape with the PathGradientBrush
-                    g.DrawPath(myPen, parallelogramPat); // Draw the outline
-                    g.FillPath(pathGradientBrush, parallelogramPat); // Fill with gradient
-
-                    // Add the MyParallelogram object to the list of shapes
-                    shapes.Add(new MyParallelogram
-                    {
-                        startPoint = startPoint,
-                        endPoint = e.Location,
-                        Pen = myPen,
-                        FillBrush = pathGradientBrush
-                    });
-                    break;
-
-
-                case 9: // Parallelogram(Hình bình hành) với -	TextureBrush
-
-                    OpenFileDialog openFileDialog = new OpenFileDialog();
-
-                    openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.png, *.bmp)|*.jpg;*.jpeg;*.png;*.bmp|All files (*.*)|*.*";
-                    if (openFileDialog.ShowDialog() == DialogResult.OK)
-                    {
-
-                        // Load the selected image
-                        Image selectedImage = Image.FromFile(openFileDialog.FileName);
-
-                        TextureBrush textureBrush = new TextureBrush(selectedImage);
-
-                        g.FillRectangle(textureBrush, 100, 100, 500, 400);
-
-                        shapes.Add(new MyParallelogram
-                        {
-                            startPoint = startPoint,
-                            endPoint = e.Location,
-                            Pen = myPen,
-                            FillBrush = textureBrush
-                        });
-
-                    }
-                    break;
-
-                case 10: //Parallelogram(Hình bình hành) với - HatchBrush
-
-                    GraphicsPath parallelogramPath_bh = new GraphicsPath();
-                    parallelogramPath_bh.AddPolygon(new Point[] {
-                    startPoint,
-                    new Point(startPoint.X + (e.Location.X - startPoint.X) / 2, e.Location.Y),
-                    e.Location,
-                    new Point(e.Location.X - (e.Location.X - startPoint.X) / 2, startPoint.Y)
-                    });
-
-                    HatchBrush hatchBrush = new HatchBrush(HatchStyle.Horizontal, FillColor, BorderColor);
-
-                    g.DrawPath(myPen, parallelogramPath_bh); // Vẽ hình bình hành với đường viền
-                    g.FillPath(hatchBrush, parallelogramPath_bh); // Tô màu bằng hatchBrush
-                    shapes.Add(new MyParallelogram
-                    {
-                        startPoint = startPoint,
-                        endPoint = e.Location,
-                        Pen = myPen,
-                        FillBrush = hatchBrush // Gán hatchBrush vào FillBrush của hình
-                    });
-                    break;
-
-                case 11: // Rhombus (Hình thoi)
+                //rhombus
+                case 8:
                     g.DrawPolygon(myPen, new Point[] {
                     new Point((startPoint.X + e.Location.X) / 2, startPoint.Y),
                     new Point(e.Location.X, (startPoint.Y + e.Location.Y) / 2),
@@ -236,125 +183,34 @@ namespace DNC1921_Ass03_MyPaint
                         Pen = myPen,
                         SolidBrush = brush
                     });
+
                     break;
 
-                case 12: // Rhombus (Hình thoi) với LinearGradientBrush
-                    GraphicsPath rhombusPath = new GraphicsPath();
-                    rhombusPath.AddPolygon(new Point[] {
-                     new Point((startPoint.X + e.Location.X) / 2, startPoint.Y),
-                     new Point(e.Location.X, (startPoint.Y + e.Location.Y) / 2),
-                     new Point((startPoint.X + e.Location.X) / 2, e.Location.Y),
-                     new Point(startPoint.X, (startPoint.Y + e.Location.Y) / 2)
+                //fill rhombus
+                case 9:
+                    g.DrawPolygon(myPen, new Point[] {
+                        new Point((startPoint.X + e.Location.X) / 2, startPoint.Y),
+                        new Point(e.Location.X, (startPoint.Y + e.Location.Y) / 2),
+                        new Point((startPoint.X + e.Location.X) / 2, e.Location.Y),
+                        new Point(startPoint.X, (startPoint.Y + e.Location.Y) / 2)
                     });
-
-                    // Chọn chế độ gradient
-                    LinearGradientMode gradientMode_thoi = LinearGradientMode.Horizontal;
-
-                    // Tạo LinearGradientBrush với chế độ gradient được chọn
-                    LinearGradientBrush linearGradientBrush_thoi = new LinearGradientBrush(
-                        new Rectangle(xLoc, yLoc, width, height), // Điểm bắt đầu và kích thước của hình thoi
-                        FillColor, // Màu FillColor ở đầu
-                        Color.White, // Màu trắng ở cuối
-                        gradientMode_thoi); // Chế độ gradient
-
-                    // Tô màu cho hình thoi
-                    g.DrawPath(myPen, rhombusPath); // Vẽ hình thoi với đường viền
-                    g.FillPath(linearGradientBrush_thoi, rhombusPath); // Tô màu bằng LinearGradientBrush
-                    shapes.Add(new MyRhombus
+                                    g.FillPolygon(brush, new Point[] {
+                        new Point((startPoint.X + e.Location.X) / 2, startPoint.Y),
+                        new Point(e.Location.X, (startPoint.Y + e.Location.Y) / 2),
+                        new Point((startPoint.X + e.Location.X) / 2, e.Location.Y),
+                        new Point(startPoint.X, (startPoint.Y + e.Location.Y) / 2)
+                    });
+                    shapes.Add(new MyFillRhombus
                     {
                         startPoint = startPoint,
                         endPoint = e.Location,
                         Pen = myPen,
-                        FillBrush = linearGradientBrush_thoi // Gán LinearGradientBrush vào FillBrush của hình
+                        SolidBrush = brush
                     });
                     break;
 
-                case 13:// Rhombus (Hình thoi) với PathGradientBrush
-                    GraphicsPath rhombusPath_pathGradientBrush = new GraphicsPath();
-                    rhombusPath_pathGradientBrush.AddPolygon(new Point[] {
-                    new Point((startPoint.X + e.Location.X) / 2, startPoint.Y),
-                    new Point(e.Location.X, (startPoint.Y + e.Location.Y) / 2),
-                    new Point((startPoint.X + e.Location.X) / 2, e.Location.Y),
-                    new Point(startPoint.X, (startPoint.Y + e.Location.Y) / 2)
-                    });
-
-                    // Tạo PathGradientBrush với hình dạng hình thoi
-                    PathGradientBrush pathGradientBrus = new PathGradientBrush(rhombusPath_pathGradientBrush);
-
-                    // Xác định các màu để kết hợp
-                    Color[] color_pathGradientBrush = { FillColor, Color.White }; // Màu ví dụ
-
-                    // Đặt màu tâm
-                    pathGradientBrus.CenterColor = FillColor;
-
-                    // Đặt các màu xung quanh
-                    pathGradientBrus.SurroundColors = new Color[] { Color.White }; // Màu xung quanh ví dụ
-
-                    // Tô màu cho hình thoi bằng PathGradientBrush
-                    g.DrawPath(myPen, rhombusPath_pathGradientBrush); // Vẽ viền
-                    g.FillPath(pathGradientBrus, rhombusPath_pathGradientBrush); // Tô màu gradient
-
-                    // Thêm đối tượng MyRhombus vào danh sách các hình
-                    shapes.Add(new MyRhombus
-                    {
-                        startPoint = startPoint,
-                        endPoint = e.Location,
-                        Pen = myPen,
-                        FillBrush = pathGradientBrus // Gán PathGradientBrush vào FillBrush của hình
-                    });
-                    break;
-
-                case 14: //Rhombus (Hình thoi) với TextureBrush
-
-                    OpenFileDialog openFileDialo = new OpenFileDialog();
-
-                    openFileDialo.Filter = "Image files (*.jpg, *.jpeg, *.png, *.bmp)|*.jpg;*.jpeg;*.png;*.bmp|All files (*.*)|*.*";
-                    if (openFileDialo.ShowDialog() == DialogResult.OK)
-                    {
-
-                        // Load image đã chọn
-                        Image selectedImage = Image.FromFile(openFileDialo.FileName);
-
-                        // Tạo a TextureBrush chọn
-                        TextureBrush textureBrush = new TextureBrush(selectedImage);
-
-                        g.FillRectangle(textureBrush, 100, 100, 500, 400);
-
-                        shapes.Add(new MyRhombus
-                        {
-                            startPoint = startPoint,
-                            endPoint = e.Location,
-                            Pen = myPen,
-                            FillBrush = textureBrush
-                        });
-
-                    }
-                    break;
-
-                case 15: //Rhombus (Hình thoi) với - HatchBrush
-
-                    GraphicsPath parallelogramPath_hatchBrush = new GraphicsPath();
-                    parallelogramPath_hatchBrush.AddPolygon(new Point[] {
-                    new Point((startPoint.X + e.Location.X) / 2, startPoint.Y),
-                    new Point(e.Location.X, (startPoint.Y + e.Location.Y) / 2),
-                    new Point((startPoint.X + e.Location.X) / 2, e.Location.Y),
-                    new Point(startPoint.X, (startPoint.Y + e.Location.Y) / 2)
-                    });
-
-                    HatchBrush hatchBrus = new HatchBrush(HatchStyle.Horizontal, FillColor, BorderColor);
-
-                    g.DrawPath(myPen, parallelogramPath_hatchBrush); // Vẽ hình thoi với đường viền
-                    g.FillPath(hatchBrus, parallelogramPath_hatchBrush); // Tô màu bằng hatchBrush
-                    shapes.Add(new MyRhombus
-                    {
-                        startPoint = startPoint,
-                        endPoint = e.Location,
-                        Pen = myPen,
-                        FillBrush = hatchBrus // Gán hatchBrush vào FillBrush của hình
-                    });
-                    break;
-
-                case 16: // Circle
+                //circle
+                case 10:
                     int diameter = Math.Min(width, height);
                     int radius = diameter / 2;
                     g.DrawEllipse(myPen, xLoc, yLoc, diameter, diameter);
@@ -365,8 +221,11 @@ namespace DNC1921_Ass03_MyPaint
                         Pen = myPen,
                         SolidBrush = brush
                     });
+
                     break;
-                case 17: // Fill Circle
+
+                //fill circle
+                case 11:
                     int diameterFill = Math.Min(width, height); // Assuming a circle inscribed in a rectangle
                     int radiusFill = diameterFill / 2;
                     g.FillEllipse(brush, xLoc, yLoc, diameterFill, diameterFill);
@@ -377,18 +236,61 @@ namespace DNC1921_Ass03_MyPaint
                         Pen = myPen,
                         SolidBrush = brush
                     });
+
                     break;
                 default:
-                    // Handle unexpected case (optional)
+                    // Handle unexpected case (optional
                     break;
             }
+            
+            switch(cboBrushType.SelectedIndex)
+            {
+                case 0:
+                    LinearGradientMode gradientMode;
+                    gradientMode = LinearGradientMode.BackwardDiagonal;
+
+                    // Tạo LinearGradientBrush với chế độ gradient được chọn
+                    LinearGradientBrush linearGradientBrush = new LinearGradientBrush(
+                        new Rectangle(xLoc, yLoc, width, height), // Điểm bắt đầu và kích thước của hình bình hành
+                        FillColor, // Màu FillColor ở đầu
+                        Color.White, // Màu trắng ở cuối
+                        gradientMode); // Chế độ gradient
+                    break;
+                case 1:
+                    
+                    break;
+            }
+            
         }
 
         private void cboType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cboType.DropDownStyle = ComboBoxStyle.DropDownList;
+            // Kiểm tra xem item nào được chọn trong cboType
+            int selectedCase = cboType.SelectedIndex;
+
+            // Nếu selectedCase tồn tại trong Dictionary và có mục tương ứng trong brushTypeItems
+            if (brushTypeItems.ContainsKey(selectedCase))
+            {
+                // Xóa các mục cũ trong cboBrushType và thêm các mục mới từ Dictionary
+                cboBrushType.Items.Clear();
+                foreach (string item in brushTypeItems[selectedCase])
+                {
+                    cboBrushType.Items.Add(item);
+                }
+
+                // Hiển thị cboBrushType
+                cboBrushType.Visible = true;
+                lblBrushType.Visible = true;    
+            }
+            else
+            {
+                // Nếu không có mục tương ứng, ẩn cboBrushType
+                cboBrushType.Visible = false;
+                lblBrushType.Visible = false;
+            }
         }
 
+        //ngăn cho người dùng nhập vào combobox
         private void cboType_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
@@ -396,38 +298,14 @@ namespace DNC1921_Ass03_MyPaint
 
         private void FrmMain_ResizeEnd(object sender, EventArgs e)
         {
-            ResizeDrawingPanel();
-            ResizeShapes();
+            //ResizeDrawingPanel();
+            //ResizeShapes();
         }
 
-        private void ResizeShapes()
-        {
-            foreach (MyShape shape in shapes)
-            {
-                // Tính toán kích thước mới của shape dựa trên kích thước mới của form
-                int newWidth = panelKhungVe.Width;
-                int newHeight = panelKhungVe.Height;
-
-                // Tính toán các thông số mới của shape
-                int newStartX = (int)(shape.startPoint.X / (double)panelKhungVe.Width * newWidth);
-                int newStartY = (int)(shape.startPoint.Y / (double)panelKhungVe.Height * newHeight);
-                int newEndX = (int)(shape.endPoint.X / (double)panelKhungVe.Width * newWidth);
-                int newEndY = (int)(shape.endPoint.Y / (double)panelKhungVe.Height * newHeight);
-
-                // Cập nhật vị trí mới cho shape
-                shape.startPoint = new Point(newStartX, newStartY);
-                shape.endPoint = new Point(newEndX, newEndY);
-            }
-        }
-
-        private void ResizeDrawingPanel()
-        {
-            panelKhungVe.Size = ClientSize;
-        }
+      
 
         private void FrmMain_Resize(object sender, EventArgs e)
         {
-
 
         }
 
@@ -480,6 +358,24 @@ namespace DNC1921_Ass03_MyPaint
                 // Lưu hình ảnh xuống tệp tin
                 bmp.Save(fileName);
             }
+        }
+
+        private void cboBrushType_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void cboBrushType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            cboBrushType.Visible = false;
+            lblBrushType.Visible = false;
         }
     }
 }

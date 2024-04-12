@@ -14,6 +14,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = DNC1921_Ass03_MyPaint
-build_property.ProjectDir = C:\Users\DLL\Desktop\Paint\DNC1921_Ass03_MyPaint\
+build_property.ProjectDir = D:\Winforms\DNC1921_Ass03_MyPaint\DNC1921_Ass03_MyPaint\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

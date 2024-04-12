@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             splitContainer1 = new SplitContainer();
+            lblBrushType = new Label();
+            cboBrushType = new ComboBox();
             btnSave = new Button();
             groupBox2 = new GroupBox();
             btnFillColor = new Button();
@@ -58,6 +60,8 @@
             // 
             // splitContainer1.Panel1
             // 
+            splitContainer1.Panel1.Controls.Add(lblBrushType);
+            splitContainer1.Panel1.Controls.Add(cboBrushType);
             splitContainer1.Panel1.Controls.Add(btnSave);
             splitContainer1.Panel1.Controls.Add(groupBox2);
             splitContainer1.Panel1.Controls.Add(groupBox1);
@@ -71,9 +75,30 @@
             splitContainer1.SplitterDistance = 277;
             splitContainer1.TabIndex = 0;
             // 
+            // lblBrushType
+            // 
+            lblBrushType.AutoSize = true;
+            lblBrushType.Font = new Font("Segoe UI", 12F);
+            lblBrushType.Location = new Point(18, 331);
+            lblBrushType.Name = "lblBrushType";
+            lblBrushType.Size = new Size(106, 28);
+            lblBrushType.TabIndex = 10;
+            lblBrushType.Text = "Brush Type";
+            // 
+            // cboBrushType
+            // 
+            cboBrushType.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cboBrushType.ForeColor = Color.Black;
+            cboBrushType.FormattingEnabled = true;
+            cboBrushType.Items.AddRange(new object[] { "BackwarDiagonal", "PathGradientBrush", "TextureBrush", "HatchBrush" });
+            cboBrushType.Location = new Point(18, 362);
+            cboBrushType.Name = "cboBrushType";
+            cboBrushType.Size = new Size(236, 31);
+            cboBrushType.TabIndex = 9;
+            // 
             // btnSave
             // 
-            btnSave.Location = new Point(83, 372);
+            btnSave.Location = new Point(73, 421);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(130, 43);
             btnSave.TabIndex = 8;
@@ -170,7 +195,7 @@
             cboType.Font = new Font("Segoe UI", 12F);
             cboType.ForeColor = Color.Black;
             cboType.FormattingEnabled = true;
-            cboType.Items.AddRange(new object[] { "Text", "Line", "Rectangle", "Fill Rectangle", "Ellipse", "Fill Ellipse", "Parallelogram", "Parallelogram_Horizontal", "Parallelogram_PathGradientBrush", "Parallelogram_TextureBrush", "Parallelogram_HatchBrush", "Rhombus", "Rhombus_Horizontal", "Rhombus_PathGradientBrush", "Rhombus_TextureBrush", "Rhombus_HatchBrush", "Circle", "Fill Circle" });
+            cboType.Items.AddRange(new object[] { "Text", "Line", "Rectangle", "Fill Rectangle", "Ellipse", "Fill Ellipse", "Parallelogram", "Fill Parallelogram", "Rhombus", "Fill Rhombus", "Circle", "Fill Circle" });
             cboType.Location = new Point(16, 56);
             cboType.Name = "cboType";
             cboType.Size = new Size(236, 36);
@@ -192,6 +217,7 @@
             // 
             panelKhungVe.BackColor = Color.White;
             panelKhungVe.Dock = DockStyle.Fill;
+            panelKhungVe.ForeColor = SystemColors.ControlText;
             panelKhungVe.Location = new Point(0, 0);
             panelKhungVe.Name = "panelKhungVe";
             panelKhungVe.Size = new Size(553, 476);
@@ -209,6 +235,7 @@
             Controls.Add(splitContainer1);
             Name = "FrmMain";
             Text = "My Paint";
+            Load += FrmMain_Load;
             ResizeEnd += FrmMain_ResizeEnd;
             Resize += FrmMain_Resize;
             splitContainer1.Panel1.ResumeLayout(false);
@@ -239,5 +266,7 @@
         private Label label1;
         private Panel panelKhungVe;
         private Button btnSave;
+        private ComboBox cboBrushType;
+        private Label lblBrushType;
     }
 }

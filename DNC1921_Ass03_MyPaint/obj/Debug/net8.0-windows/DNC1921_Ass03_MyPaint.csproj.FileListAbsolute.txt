@@ -49,3 +49,5 @@ C:\Users\DLL\Desktop\Paint\DNC1921_Ass03_MyPaint\obj\Debug\net8.0-windows\refint
 C:\Users\DLL\Desktop\Paint\DNC1921_Ass03_MyPaint\obj\Debug\net8.0-windows\DNC1921_Ass03_MyPaint.pdb
 C:\Users\DLL\Desktop\Paint\DNC1921_Ass03_MyPaint\obj\Debug\net8.0-windows\DNC1921_Ass03_MyPaint.genruntimeconfig.cache
 C:\Users\DLL\Desktop\Paint\DNC1921_Ass03_MyPaint\obj\Debug\net8.0-windows\ref\DNC1921_Ass03_MyPaint.dll
+D:\Winforms\DNC1921_Ass03_MyPaint\DNC1921_Ass03_MyPaint\obj\Debug\net8.0-windows\DNC1921_Ass03_MyPaint.DrawString.resources
+D:\Winforms\DNC1921_Ass03_MyPaint\DNC1921_Ass03_MyPaint\obj\Debug\net8.0-windows\DNC1921_Ass03_MyPaint.DrawText.resources

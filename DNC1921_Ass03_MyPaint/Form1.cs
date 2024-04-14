@@ -13,10 +13,12 @@ namespace DNC1921_Ass03_MyPaint
             InitializeComponent();
             g = panelKhungVe.CreateGraphics();
             IsMdiContainer = true;
+            this.Resize += new EventHandler(FrmMain_Resize);
         }
 
         Color BorderColor = Color.Black;
         Color FillColor = Color.Black;
+        Color StringColor = Color.Black;
         Point startPoint = Point.Empty;
         Graphics g = null;
         List<MyShape> shapes = new List<MyShape>();
@@ -68,14 +70,51 @@ namespace DNC1921_Ass03_MyPaint
             SolidBrush brush = new SolidBrush(FillColor);
             switch (cboType.SelectedIndex)
             {// Case 0: Text
+
                 case 0:
-                    DrawText drawtext = new DrawText();
-                    drawtext.ShowDialog(this);
+                    // Gọi hàm để chọn màu cho văn bản
+                    btnStringColor_Click(sender, e);
+
+                    // Lấy font
+                    var font = new Font("Arial", 20);
+
+                    // Lấy màu
+                    var stringBrush = new SolidBrush(mauTo);
+
+                    // Lấy vị trí
+                    int x = int.Parse(txtX.Text);
+                    int y = int.Parse(txtY.Text);
+
+                    // Vẽ văn bản
+                    using (var g = panelKhungVe.CreateGraphics())
+                    {
+                        // Vẽ văn bản
+                        g.DrawString(txtString.Text, font, brush, x, y);
+
+                        // Thêm thông tin về văn bản vào danh sách các hình vẽ
+                        shapes.Add(new MyString
+                        {
+                            Text = txtString.Text,
+                            Font = font,
+                            stringBrush = brush,
+                            X = x,
+                            Y = y
+                        });
+                    }
                     break;
+
+
                 //==================================================================================================================================================
                 // Case 1: Line
                 case 1:
                     g.DrawLine(myPen, startPoint, e.Location);
+                    shapes.Add(new MyLine
+                    {
+                        startPoint = startPoint,
+                        endPoint = e.Location,
+                        Pen = myPen
+                    }
+                        );
                     break;
                 //==================================================================================================================================================
                 // Case 2: Rectangle
@@ -155,28 +194,34 @@ namespace DNC1921_Ass03_MyPaint
                     break;
 
                 // Case 3.3: Rectangle_TextureBrush
-                case 5:
-                    OpenFileDialog ofRectangle = new OpenFileDialog();
-
-                    ofRectangle.Filter = "Image files (*.jpg, *.jpeg, *.png, *.bmp)|*.jpg;*.jpeg;*.png;*.bmp|All files (*.*)|*.*";
-                    if (ofRectangle.ShowDialog() == DialogResult.OK)
+                case 5: // Rectangle TextureBrush
+                    using (OpenFileDialog ofRectangle = new OpenFileDialog())
                     {
-
-                        // Load the selected image
-                        Image selectedImage = Image.FromFile(ofRectangle.FileName);
-
-                        TextureBrush textureBrush = new TextureBrush(selectedImage);
-
-                        g.FillRectangle(textureBrush, 100, 100, 500, 400);
-
-                        shapes.Add(new MyRectangleTextureBrush
+                        ofRectangle.Filter = "Image files (*.jpg, *.jpeg, *.png, *.bmp)|*.jpg;*.jpeg;*.png;*.bmp|All files (*.*)|*.*";
+                        if (ofRectangle.ShowDialog() == DialogResult.OK)
                         {
-                            startPoint = startPoint,
-                            endPoint = e.Location,
-                            Pen = myPen,
-                            FillBrush = textureBrush
-                        });
+                            // Load the selected image
+                            Image selectedImage = Image.FromFile(ofRectangle.FileName);
 
+                            // Tính toán kích thước hình ảnh mới để phù hợp với kích thước của hình chữ nhật
+                            int WRec = Math.Abs(e.Location.X - startPoint.X);
+                            int HRec = Math.Abs(e.Location.Y - startPoint.Y);
+
+                            // Tạo TextureBrush từ hình ảnh đã chọn
+                            TextureBrush textureBrush = new TextureBrush(selectedImage);
+
+                            // Vẽ hình chữ nhật với kích thước mới của hình ảnh
+                            g.FillRectangle(textureBrush, startPoint.X, startPoint.Y, width, height);
+
+                            // Thêm hình chữ nhật vào danh sách các hình đã vẽ
+                            shapes.Add(new MyRectangleTextureBrush
+                            {
+                                startPoint = startPoint,
+                                endPoint = e.Location,
+                                Pen = myPen,
+                                FillBrush = textureBrush
+                            });
+                        }
                     }
                     break;
 
@@ -405,7 +450,7 @@ namespace DNC1921_Ass03_MyPaint
                     });
                     break;
 
-                // Case 5.1: Parallelogram_BackwardDiagonal
+                // Case 5.1: Parallelogram_Horizontal
                 case 15:
                     GraphicsPath parallelogramPath = new GraphicsPath();
                     parallelogramPath.AddPolygon(new Point[] {
@@ -475,31 +520,41 @@ namespace DNC1921_Ass03_MyPaint
                     break;
 
                 // Case 5.3: Parallelogram_TextureBrush
-                case 17:
+                case 17: // Parallelogram TextureBrush
                     OpenFileDialog ofParallelogram = new OpenFileDialog();
-
                     ofParallelogram.Filter = "Image files (*.jpg, *.jpeg, *.png, *.bmp)|*.jpg;*.jpeg;*.png;*.bmp|All files (*.*)|*.*";
+
                     if (ofParallelogram.ShowDialog() == DialogResult.OK)
                     {
-
                         // Load the selected image
                         Image selectedImage = Image.FromFile(ofParallelogram.FileName);
 
+                        // Create TextureBrush from the selected image
                         TextureBrush textureBrush = new TextureBrush(selectedImage);
 
-                        g.FillRectangle(textureBrush, 100, 100, 500, 400);
+                        // Calculate the width and height of the parallelogram
+                        int WPolygon = Math.Abs(e.Location.X - startPoint.X);
+                        int HPolygon = Math.Abs(e.Location.Y - startPoint.Y);
 
-                        shapes.Add(new MyParallelogram
+                        // Calculate the points of the parallelogram
+
+                        Point[] parallelogramPoints = CalculateParallelogramPoints(startPoint, e.Location);
+
+                        // Draw the parallelogram with the texture
+                        g.FillPolygon(textureBrush, parallelogramPoints);
+
+                        // Add the parallelogram to the list of shapes
+                        shapes.Add(new MyParallelogramTextureBrush
                         {
                             startPoint = startPoint,
                             endPoint = e.Location,
                             Pen = myPen,
                             FillBrush = textureBrush
                         });
-
                     }
 
                     break;
+
 
                 // Case 5.4: Parallelogram_HatchBrush
                 case 18:
@@ -638,40 +693,50 @@ namespace DNC1921_Ass03_MyPaint
 
                 case 23: // Hình thoi với TextureBrush
                     OpenFileDialog ofRhombus = new OpenFileDialog();
-
                     ofRhombus.Filter = "Image files (*.jpg, *.jpeg, *.png, *.bmp)|*.jpg;*.jpeg;*.png;*.bmp|All files (*.*)|*.*";
+
                     if (ofRhombus.ShowDialog() == DialogResult.OK)
                     {
                         // Load the selected image
                         Image selectedImage = Image.FromFile(ofRhombus.FileName);
 
-                        // Tính kích thước của hình ellipse để phù hợp với kích thước của hình được chọn từ tệp hình ảnh
-                        int WidthEllipse = Math.Min(e.Location.X - startPoint.X, selectedImage.Width); // Chọn kích thước nhỏ nhất giữa kích thước của hình được chọn và kích thước của ellipse
-                        int HeightEllipse = Math.Min(e.Location.Y - startPoint.Y, selectedImage.Height); // Chọn kích thước nhỏ nhất giữa kích thước của hình được chọn và kích thước của ellipse
+                        // Create TextureBrush from the selected image
+                        TextureBrush textureBrush = new TextureBrush(selectedImage);
 
-                        // Tính tọa độ x và y của hình ellipse để đặt hình chính giữa ellipse
-                        int XEllipse = startPoint.X + (e.Location.X - startPoint.X) / 2 - WidthEllipse / 2;
-                        int YEllipse = startPoint.Y + (e.Location.Y - startPoint.Y) / 2 - HeightEllipse / 2;
+                        // Calculate the width and height of the rhombus to fit the selected image
+                        int widthRhombus = Math.Min(e.Location.X - startPoint.X, selectedImage.Width);
+                        int heightRhombus = Math.Min(e.Location.Y - startPoint.Y, selectedImage.Height);
 
-                        // Tạo TextureBrush từ hình ảnh đã chọn
-                        TextureBrush textureBrushEllipse = new TextureBrush(selectedImage);
+                        // Calculate the coordinates of the rhombus to center the image within the rhombus
+                        int xRhombus = startPoint.X + (e.Location.X - startPoint.X) / 2 - widthRhombus / 2;
+                        int yRhombus = startPoint.Y + (e.Location.Y - startPoint.Y) / 2 - heightRhombus / 2;
 
-                        // Vẽ hình ellipse bằng TextureBrush
-                        g.FillEllipse(textureBrushEllipse, XEllipse, YEllipse, WidthEllipse, HeightEllipse);
+                        // Create a GraphicsPath for the rhombus
+                        GraphicsPath rhombusTexturePath = new GraphicsPath();
+                        rhombusTexturePath.AddPolygon(new Point[] {
+                                new Point(xRhombus + widthRhombus / 2, yRhombus),
+                                new Point(xRhombus + widthRhombus, yRhombus + heightRhombus / 2),
+                                new Point(xRhombus + widthRhombus / 2, yRhombus + heightRhombus),
+                                new Point(xRhombus, yRhombus + heightRhombus / 2)
+                            });
 
-                        // Vẽ viền của hình ellipse
-                        g.DrawEllipse(myPen, XEllipse, YEllipse, WidthEllipse, HeightEllipse);
+                        // Fill the rhombus with TextureBrush
+                        g.FillPath(textureBrush, rhombusTexturePath);
 
-                        // Thêm hình ellipse vào danh sách các hình được vẽ
-                        shapes.Add(new MyEllipseTextureBrush
+                        // Draw the border of the rhombus
+                        g.DrawPath(myPen, rhombusTexturePath);
+
+                        // Add the rhombus to the list of shapes
+                        shapes.Add(new MyRhombusTextureBrush
                         {
                             startPoint = startPoint,
                             endPoint = e.Location,
                             Pen = myPen,
-                            FillBrush = textureBrushEllipse
+                            FillBrush = textureBrush
                         });
                     }
                     break;
+
 
 
 
@@ -897,10 +962,55 @@ namespace DNC1921_Ass03_MyPaint
             }
         }
 
+        private Point[] CalculateParallelogramPoints(Point startPoint, Point endPoint)
+        {
+            // Tính toán các điểm cho hình bản lề dựa trên điểm bắt đầu và kết thúc
+
+            // Định nghĩa một mảng chứa 4 điểm
+            Point[] parallelogramPoints = new Point[4];
+
+            // Gán các điểm bắt đầu và kết thúc cho điểm 1 và 4 của hình bản lề
+            parallelogramPoints[0] = startPoint;
+            parallelogramPoints[3] = endPoint;
+
+            // Tính toán các điểm còn lại dựa trên đường chéo của hình bản lề
+            // Cách đơn giản là di chuyển một khoảng cố định từ startPoint và endPoint
+            int width = Math.Abs(endPoint.X - startPoint.X);
+            int height = Math.Abs(endPoint.Y - startPoint.Y);
+            parallelogramPoints[1] = new Point(startPoint.X + width, startPoint.Y);
+            parallelogramPoints[2] = new Point(endPoint.X + width, endPoint.Y);
+
+            return parallelogramPoints;
+        }
 
         private void cboType_SelectedIndexChanged(object sender, EventArgs e)
         {
+            int selectedCase = cboType.SelectedIndex;
 
+            // Tùy thuộc vào case được chọn, điều chỉnh tính năng hiển thị của các thành phần trong groupbox
+            switch (selectedCase)
+            {
+                case 0: // Khi chọn case 0
+                    groupBox3.Enabled = true;
+                    label5.Enabled = true;
+                    label6.Enabled = true;
+                    label7.Enabled = true;
+                    txtX.Enabled = true;
+                    txtY.Enabled = true;
+                    txtString.Enabled = true;
+                    btnDraw.Enabled = true;
+                    break;
+                default: // Khi không chọn case nào
+                    groupBox3.Enabled = false;
+                    label5.Enabled = false;
+                    label6.Enabled = false;
+                    label7.Enabled = false;
+                    txtX.Enabled = false;
+                    txtY.Enabled = false;
+                    txtString.Enabled = false;
+                    btnDraw.Enabled = false;
+                    break;
+            }
         }
 
         //ngăn cho người dùng nhập vào combobox
@@ -915,7 +1025,25 @@ namespace DNC1921_Ass03_MyPaint
         }
         private void FrmMain_Resize(object sender, EventArgs e)
         {
+            VeChuoi();
+        }
+        private void VeChuoi()
+        {
+            var g = panelKhungVe.CreateGraphics();
+            g.DrawString(txtString.Text, new Font("Arial", 20), new SolidBrush(mauTo), int.Parse(txtX.Text), int.Parse(txtY.Text));
+        }
 
+
+        private int CalculateNewY(int oldY, int oldFormHeight, int newFormHeight)
+        {
+            // Tính toán lại vị trí Y dựa trên tỷ lệ giữa kích thước cũ và mới của form
+            return (int)((double)oldY / oldFormHeight * newFormHeight);
+        }
+
+        private int CalculateNewX(int oldX, int oldFormWidth, int newFormWidth)
+        {
+            // Tính toán lại vị trí X dựa trên tỷ lệ giữa kích thước cũ và mới của form
+            return (int)((double)oldX / oldFormWidth * newFormWidth);
         }
 
         private void panelKhungVe_Paint(object sender, PaintEventArgs e)
@@ -985,13 +1113,21 @@ namespace DNC1921_Ass03_MyPaint
         {
             //cboBrushType.Visible = false;
             //lblBrushType.Visible = false;
+            groupBox3.Enabled = false;
+            label5.Enabled = false;
+            label6.Enabled = false;
+            label7.Enabled = false;
+            txtX.Enabled = false;
+            txtY.Enabled = false;
+            txtString.Enabled = false;
+            btnDraw.Enabled = false;
         }
 
         private void cboBrushType_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
         }
-        Color mauTo = Color.Black;
+
         private void btnDraw_Click(object sender, EventArgs e)
         {
 
@@ -1021,6 +1157,31 @@ namespace DNC1921_Ass03_MyPaint
         private void btnDraw_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnStringColor_Click(object sender, EventArgs e)
+        {
+            var cdDialog = new ColorDialog();
+            cdDialog.FullOpen = true;
+            if (cdDialog.ShowDialog() == DialogResult.OK)
+            {
+                StringColor = cdDialog.Color;
+                btnStringColor.BackColor = cdDialog.Color;
+                mauTo = cdDialog.Color;
+            }
+        }
+        Color mauTo = Color.Black;
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            var g = panelKhungVe.CreateGraphics();
+            g.DrawString(txtString.Text, new Font("Arial", 20), new SolidBrush(mauTo), int.Parse(txtX.Text), int.Parse(txtY.Text));
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AboutForm aboutFrom = new AboutForm();
+            aboutFrom.ShowDialog();
         }
     }
 }

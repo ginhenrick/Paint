@@ -1,18 +1,46 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Winforms\\DNC1921_Ass03_MyPaint\\",
+  "WorkspaceRootPath": "D:\\New folder\\Paint\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{27A85AAA-6659-4BC2-8AFB-4F9DE654BE37}|DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj|d:\\winforms\\dnc1921_ass03_mypaint\\dnc1921_ass03_mypaint\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{27A85AAA-6659-4BC2-8AFB-4F9DE654BE37}|DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj|solutionrelative:dnc1921_ass03_mypaint\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{27A85AAA-6659-4BC2-8AFB-4F9DE654BE37}|DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj|D:\\Winforms\\DNC1921_Ass03_MyPaint\\dnc1921_ass03_mypaint\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{27A85AAA-6659-4BC2-8AFB-4F9DE654BE37}|DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj|D:\\New folder\\Paint\\dnc1921_ass03_mypaint\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{27A85AAA-6659-4BC2-8AFB-4F9DE654BE37}|DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj|solutionrelative:dnc1921_ass03_mypaint\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{27A85AAA-6659-4BC2-8AFB-4F9DE654BE37}|DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj|D:\\Winforms\\DNC1921_Ass03_MyPaint\\dnc1921_ass03_mypaint\\shape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{27A85AAA-6659-4BC2-8AFB-4F9DE654BE37}|DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj|d:\\new folder\\paint\\dnc1921_ass03_mypaint\\form1.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
+      "RelativeMoniker": "D:0:0:{27A85AAA-6659-4BC2-8AFB-4F9DE654BE37}|DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj|solutionrelative:dnc1921_ass03_mypaint\\form1.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27A85AAA-6659-4BC2-8AFB-4F9DE654BE37}|DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj|d:\\new folder\\paint\\dnc1921_ass03_mypaint\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27A85AAA-6659-4BC2-8AFB-4F9DE654BE37}|DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj|solutionrelative:dnc1921_ass03_mypaint\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27A85AAA-6659-4BC2-8AFB-4F9DE654BE37}|DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj|d:\\new folder\\paint\\dnc1921_ass03_mypaint\\aboutform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{27A85AAA-6659-4BC2-8AFB-4F9DE654BE37}|DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj|solutionrelative:dnc1921_ass03_mypaint\\aboutform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27A85AAA-6659-4BC2-8AFB-4F9DE654BE37}|DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj|d:\\new folder\\paint\\dnc1921_ass03_mypaint\\aboutform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27A85AAA-6659-4BC2-8AFB-4F9DE654BE37}|DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj|solutionrelative:dnc1921_ass03_mypaint\\aboutform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27A85AAA-6659-4BC2-8AFB-4F9DE654BE37}|DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj|d:\\new folder\\paint\\dnc1921_ass03_mypaint\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27A85AAA-6659-4BC2-8AFB-4F9DE654BE37}|DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj|solutionrelative:dnc1921_ass03_mypaint\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27A85AAA-6659-4BC2-8AFB-4F9DE654BE37}|DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj|D:\\New folder\\Paint\\dnc1921_ass03_mypaint\\shape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{27A85AAA-6659-4BC2-8AFB-4F9DE654BE37}|DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj|solutionrelative:dnc1921_ass03_mypaint\\shape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27A85AAA-6659-4BC2-8AFB-4F9DE654BE37}|DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj|d:\\new folder\\paint\\dnc1921_ass03_mypaint\\dnc1921_ass03_mypaint.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{27A85AAA-6659-4BC2-8AFB-4F9DE654BE37}|DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj|solutionrelative:dnc1921_ass03_mypaint\\dnc1921_ass03_mypaint.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27A85AAA-6659-4BC2-8AFB-4F9DE654BE37}|DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj|d:\\new folder\\paint\\dnc1921_ass03_mypaint\\aboutform.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
+      "RelativeMoniker": "D:0:0:{27A85AAA-6659-4BC2-8AFB-4F9DE654BE37}|DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj|solutionrelative:dnc1921_ass03_mypaint\\aboutform.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27A85AAA-6659-4BC2-8AFB-4F9DE654BE37}|DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj|d:\\new folder\\paint\\dnc1921_ass03_mypaint\\aboutform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27A85AAA-6659-4BC2-8AFB-4F9DE654BE37}|DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj|solutionrelative:dnc1921_ass03_mypaint\\aboutform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,39 +58,129 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Shape.cs",
-              "DocumentMoniker": "D:\\Winforms\\DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint\\Shape.cs",
-              "RelativeDocumentMoniker": "DNC1921_Ass03_MyPaint\\Shape.cs",
-              "ToolTip": "D:\\Winforms\\DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint\\Shape.cs",
-              "RelativeToolTip": "DNC1921_Ass03_MyPaint\\Shape.cs",
-              "ViewState": "AQIAADkAAAAAAAAAAADwv8sAAAAAAAAA",
+              "DocumentIndex": 4,
+              "Title": "AboutForm.cs",
+              "DocumentMoniker": "D:\\New folder\\Paint\\DNC1921_Ass03_MyPaint\\AboutForm.cs",
+              "RelativeDocumentMoniker": "DNC1921_Ass03_MyPaint\\AboutForm.cs",
+              "ToolTip": "D:\\New folder\\Paint\\DNC1921_Ass03_MyPaint\\AboutForm.cs",
+              "RelativeToolTip": "DNC1921_Ass03_MyPaint\\AboutForm.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-08T07:06:51.245Z"
+              "WhenOpened": "2024-04-14T16:51:57.507Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "D:\\Winforms\\DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint\\Form1.cs",
-              "RelativeDocumentMoniker": "DNC1921_Ass03_MyPaint\\Form1.cs",
-              "ToolTip": "D:\\Winforms\\DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint\\Form1.cs",
-              "RelativeToolTip": "DNC1921_Ass03_MyPaint\\Form1.cs",
-              "ViewState": "AQIAAOwCAAAAAAAAAADwv/kCAAA4AAAA",
+              "DocumentIndex": 3,
+              "Title": "AboutForm.cs [Design]",
+              "DocumentMoniker": "D:\\New folder\\Paint\\DNC1921_Ass03_MyPaint\\AboutForm.cs",
+              "RelativeDocumentMoniker": "DNC1921_Ass03_MyPaint\\AboutForm.cs",
+              "ToolTip": "D:\\New folder\\Paint\\DNC1921_Ass03_MyPaint\\AboutForm.cs [Design]",
+              "RelativeToolTip": "DNC1921_Ass03_MyPaint\\AboutForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-14T05:47:19.216Z",
+              "WhenOpened": "2024-04-14T16:45:53.839Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AboutForm.resx",
+              "DocumentMoniker": "D:\\New folder\\Paint\\DNC1921_Ass03_MyPaint\\AboutForm.resx",
+              "RelativeDocumentMoniker": "DNC1921_Ass03_MyPaint\\AboutForm.resx",
+              "ToolTip": "D:\\New folder\\Paint\\DNC1921_Ass03_MyPaint\\AboutForm.resx",
+              "RelativeToolTip": "DNC1921_Ass03_MyPaint\\AboutForm.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2024-04-14T16:45:37.155Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DNC1921_Ass03_MyPaint",
+              "DocumentMoniker": "D:\\New folder\\Paint\\DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj",
+              "RelativeDocumentMoniker": "DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj",
+              "ToolTip": "D:\\New folder\\Paint\\DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj",
+              "RelativeToolTip": "DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-04-14T16:45:37.074Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "D:\\New folder\\Paint\\DNC1921_Ass03_MyPaint\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "DNC1921_Ass03_MyPaint\\Form1.Designer.cs",
+              "ToolTip": "D:\\New folder\\Paint\\DNC1921_Ass03_MyPaint\\Form1.Designer.cs",
+              "RelativeToolTip": "DNC1921_Ass03_MyPaint\\Form1.Designer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T16:45:36.739Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Form1.resx",
+              "DocumentMoniker": "D:\\New folder\\Paint\\DNC1921_Ass03_MyPaint\\Form1.resx",
+              "RelativeDocumentMoniker": "DNC1921_Ass03_MyPaint\\Form1.resx",
+              "ToolTip": "D:\\New folder\\Paint\\DNC1921_Ass03_MyPaint\\Form1.resx",
+              "RelativeToolTip": "DNC1921_Ass03_MyPaint\\Form1.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2024-04-14T16:45:36.714Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Shape.cs",
+              "DocumentMoniker": "D:\\New folder\\Paint\\DNC1921_Ass03_MyPaint\\Shape.cs",
+              "RelativeDocumentMoniker": "DNC1921_Ass03_MyPaint\\Shape.cs",
+              "ToolTip": "D:\\New folder\\Paint\\DNC1921_Ass03_MyPaint\\Shape.cs",
+              "RelativeToolTip": "DNC1921_Ass03_MyPaint\\Shape.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAIwDIAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-08T07:06:51.245Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "D:\\Winforms\\DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint\\Form1.cs",
+              "DocumentMoniker": "D:\\New folder\\Paint\\DNC1921_Ass03_MyPaint\\Form1.cs",
               "RelativeDocumentMoniker": "DNC1921_Ass03_MyPaint\\Form1.cs",
-              "ToolTip": "D:\\Winforms\\DNC1921_Ass03_MyPaint\\DNC1921_Ass03_MyPaint\\Form1.cs [Design]",
+              "ToolTip": "D:\\New folder\\Paint\\DNC1921_Ass03_MyPaint\\Form1.cs [Design]",
               "RelativeToolTip": "DNC1921_Ass03_MyPaint\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-06T13:00:57.548Z"
+              "WhenOpened": "2024-04-06T13:00:57.548Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AboutForm.Designer.cs",
+              "DocumentMoniker": "D:\\New folder\\Paint\\DNC1921_Ass03_MyPaint\\AboutForm.Designer.cs",
+              "RelativeDocumentMoniker": "DNC1921_Ass03_MyPaint\\AboutForm.Designer.cs",
+              "ToolTip": "D:\\New folder\\Paint\\DNC1921_Ass03_MyPaint\\AboutForm.Designer.cs",
+              "RelativeToolTip": "DNC1921_Ass03_MyPaint\\AboutForm.Designer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T16:45:37.162Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "D:\\New folder\\Paint\\DNC1921_Ass03_MyPaint\\Form1.cs",
+              "RelativeDocumentMoniker": "DNC1921_Ass03_MyPaint\\Form1.cs",
+              "ToolTip": "D:\\New folder\\Paint\\DNC1921_Ass03_MyPaint\\Form1.cs",
+              "RelativeToolTip": "DNC1921_Ass03_MyPaint\\Form1.cs",
+              "ViewState": "AQIAAAIEAAAAAAAAAAAIwBQEAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T05:47:19.216Z",
+              "EditorCaption": ""
             }
           ]
         }

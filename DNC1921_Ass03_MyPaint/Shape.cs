@@ -18,17 +18,50 @@ namespace DNC1921_Ass03_MyPaint
         public Brush? FillBrush { get; set; }
         public abstract void Draw(Graphics g);
         public LinearGradientBrush? gradientMode { get; set; }
-
+        
     }
 
     public class MyLine : MyShape
     {
         public override void Draw(Graphics g)
         {
-            g.DrawLine(Pen, startPoint, endPoint);
+            if (startPoint != null && endPoint != null && Pen != null)
+            {
+                // Vẽ đường
+                g.DrawLine(Pen, startPoint, endPoint);
+            }
         }
-       
     }
+
+
+    public class MyString : MyShape
+    {
+        public string Text { get; set; }
+        public Font Font { get; set; }
+        public Brush stringBrush { get; set; }
+        public int X { get; set; }
+        public int Y { get; set; }
+        public PointF Position { get; set; }
+        public Color Color { get; set; }
+
+        public override void Draw(Graphics g)
+        {
+            if (Text != null && Font != null)
+            {
+                using (var brush = new SolidBrush(Color))
+                {
+                    g.DrawString(Text, Font, stringBrush, Position);
+                }
+            }
+        }
+        public void UpdatePosition(PointF newPosition)
+        {
+            Position = newPosition;
+        }
+    }
+
+
+
 
     public class MyRectangle : MyShape
     {
@@ -229,11 +262,15 @@ namespace DNC1921_Ass03_MyPaint
         {
             if (startPoint != null && endPoint != null && Pen != null && FillBrush != null)
             {
+                // Tính kích thước của hình chữ nhật
+                int width = Math.Abs(endPoint.X - startPoint.X);
+                int height = Math.Abs(endPoint.Y - startPoint.Y);
+
                 // Vẽ hình chữ nhật bằng TextureBrush
-                g.FillRectangle((TextureBrush)FillBrush, startPoint.X, startPoint.Y, endPoint.X - startPoint.X, endPoint.Y - startPoint.Y);
+                g.FillRectangle(FillBrush, startPoint.X, startPoint.Y, width, height);
 
                 // Vẽ viền của hình chữ nhật
-                g.DrawRectangle(Pen, startPoint.X, startPoint.Y, endPoint.X - startPoint.X, endPoint.Y - startPoint.Y);
+                g.DrawRectangle(Pen, startPoint.X, startPoint.Y, width, height);
             }
         }
     }
@@ -493,36 +530,47 @@ namespace DNC1921_Ass03_MyPaint
             }
         }
     }
-
-    public class MyRhombusTextureBrush : MyShape
+    //=====================================================================================================================================================
+    public class MyParallelogramTextureBrush : MyShape
     {
         public override void Draw(Graphics g)
         {
             if (startPoint != null && endPoint != null && Pen != null && FillBrush != null)
             {
-                // Tính các điểm để vẽ hình thoi
-                Point[] rhombusPoints = {
-                new Point((startPoint.X + endPoint.X) / 2, startPoint.Y),
-                new Point(endPoint.X, (startPoint.Y + endPoint.Y) / 2),
-                new Point((startPoint.X + endPoint.X) / 2, endPoint.Y),
-                new Point(startPoint.X, (startPoint.Y + endPoint.Y) / 2)
-            };
+                // Calculate parallelogram points based on the new size of the form
+                Point[] parallelogramPoints = CalculateParallelogramPoints(startPoint, endPoint, g.VisibleClipBounds.Width, g.VisibleClipBounds.Height);
 
-                // Tính kích thước của hình thoi
-                int width = endPoint.X - startPoint.X;
-                int height = endPoint.Y - startPoint.Y;
+                // Draw the parallelogram with the texture brush
+                g.FillPolygon(FillBrush, parallelogramPoints);
 
-                // Tạo TextureBrush từ hình ảnh đã chọn
-                TextureBrush textureBrush = new TextureBrush(((Bitmap)FillBrush.Image), WrapMode.Tile);
-
-                // Vẽ hình thoi bằng TextureBrush
-                g.FillPolygon(textureBrush, rhombusPoints);
-
-                // Vẽ viền của hình thoi
-                g.DrawPolygon(Pen, rhombusPoints);
+                // Draw the border of the parallelogram
+                g.DrawPolygon(Pen, parallelogramPoints);
             }
         }
+
+        // Calculate parallelogram points based on the new size of the form
+        private Point[] CalculateParallelogramPoints(Point startPoint, Point endPoint, float formWidth, float formHeight)
+        {
+            // Define an array to hold 4 points for the parallelogram
+            Point[] parallelogramPoints = new Point[4];
+
+            // Assign the start and end points to the first and fourth points of the parallelogram
+            parallelogramPoints[0] = startPoint;
+            parallelogramPoints[3] = endPoint;
+
+            // Calculate the width and height of the parallelogram
+            int width = Math.Abs(endPoint.X - startPoint.X);
+            int height = Math.Abs(endPoint.Y - startPoint.Y);
+
+            // Calculate the remaining points based on the diagonal of the parallelogram
+            // A simple approach is to move a fixed distance from the startPoint and endPoint
+            parallelogramPoints[1] = new Point(startPoint.X + width, startPoint.Y);
+            parallelogramPoints[2] = new Point(endPoint.X + width, endPoint.Y);
+
+            return parallelogramPoints;
+        }
     }
+    //================================================================================================================================================
 
     public class MyRhombusHatchBrush : MyShape
     {
@@ -531,6 +579,38 @@ namespace DNC1921_Ass03_MyPaint
             
         }
     }
+
+    public class MyRhombusTextureBrush : MyShape
+    {
+        public override void Draw(Graphics g)
+        {
+            if (startPoint != null && endPoint != null && Pen != null && FillBrush != null)
+            {
+                // Calculate the width and height of the rhombus
+                int widthRhombus = Math.Abs(endPoint.X - startPoint.X);
+                int heightRhombus = Math.Abs(endPoint.Y - startPoint.Y);
+
+                // Calculate the coordinates to center the rhombus
+                int xRhombus = Math.Min(startPoint.X, endPoint.X);
+                int yRhombus = Math.Min(startPoint.Y, endPoint.Y);
+
+                // Calculate the points of the rhombus
+                Point[] rhombusPoints = {
+                new Point(xRhombus + widthRhombus / 2, yRhombus), // Top
+                new Point(xRhombus + widthRhombus, yRhombus + heightRhombus / 2), // Right
+                new Point(xRhombus + widthRhombus / 2, yRhombus + heightRhombus), // Bottom
+                new Point(xRhombus, yRhombus + heightRhombus / 2) // Left
+            };
+
+                // Draw the rhombus with the texture brush
+                g.FillPolygon(FillBrush, rhombusPoints);
+
+                // Draw the border of the rhombus
+                g.DrawPolygon(Pen, rhombusPoints);
+            }
+        }
+    }
+
 
 
 
@@ -564,5 +644,43 @@ namespace DNC1921_Ass03_MyPaint
             }
         }
     }
+    //==========================================================================================================//
+    public class MyCirclePathGradientBrush : MyShape
+    {
+        public override void Draw(Graphics g)
+        {
+            if (startPoint != null && endPoint != null && Pen != null && FillBrush != null)
+            {
+                // Tính đường kính của hình tròn
+                int diameterCirclePath = Math.Min(endPoint.X - startPoint.X, endPoint.Y - startPoint.Y); // Giả sử hình tròn nằm trong hình chữ nhật
+                int radiusCirclePath = diameterCirclePath / 2;
+
+                // Tính tọa độ x và y của hình tròn
+                int xLocCirclePath = startPoint.X + (endPoint.X - startPoint.X) / 2 - radiusCirclePath;
+                int yLocCirclePath = startPoint.Y + (endPoint.Y - startPoint.Y) / 2 - radiusCirclePath;
+
+                // Tạo đường dẫn cho hình tròn
+                GraphicsPath circlePathBrush = new GraphicsPath();
+                circlePathBrush.AddEllipse(new Rectangle(xLocCirclePath, yLocCirclePath, diameterCirclePath, diameterCirclePath));
+
+                // Tạo PathGradientBrush từ đường dẫn của hình tròn
+                PathGradientBrush pathGradientBrushCircle = new PathGradientBrush(circlePathBrush);
+
+                // Thiết lập màu trung tâm cho PathGradientBrush
+                pathGradientBrushCircle.CenterColor = ((PathGradientBrush)FillBrush).CenterColor;
+
+                // Thiết lập màu xung quanh cho PathGradientBrush
+                pathGradientBrushCircle.SurroundColors = ((PathGradientBrush)FillBrush).SurroundColors;
+
+                // Vẽ hình tròn với đường viền
+                g.DrawEllipse(Pen, xLocCirclePath, yLocCirclePath, diameterCirclePath, diameterCirclePath);
+
+                // Tô màu bằng PathGradientBrush
+                g.FillEllipse(pathGradientBrushCircle, xLocCirclePath, yLocCirclePath, diameterCirclePath, diameterCirclePath);
+            }
+        }
+    }
+
+
 
 }

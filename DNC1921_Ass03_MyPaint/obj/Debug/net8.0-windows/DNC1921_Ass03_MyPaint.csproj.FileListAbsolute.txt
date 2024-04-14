@@ -51,3 +51,22 @@ C:\Users\DLL\Desktop\Paint\DNC1921_Ass03_MyPaint\obj\Debug\net8.0-windows\DNC192
 C:\Users\DLL\Desktop\Paint\DNC1921_Ass03_MyPaint\obj\Debug\net8.0-windows\ref\DNC1921_Ass03_MyPaint.dll
 D:\Winforms\DNC1921_Ass03_MyPaint\DNC1921_Ass03_MyPaint\obj\Debug\net8.0-windows\DNC1921_Ass03_MyPaint.DrawString.resources
 D:\Winforms\DNC1921_Ass03_MyPaint\DNC1921_Ass03_MyPaint\obj\Debug\net8.0-windows\DNC1921_Ass03_MyPaint.DrawText.resources
+D:\New folder\Paint\DNC1921_Ass03_MyPaint\obj\Debug\net8.0-windows\DNC1921_Ass03_MyPaint.FrmMain.resources
+D:\New folder\Paint\DNC1921_Ass03_MyPaint\obj\Debug\net8.0-windows\DNC1921_Ass03_MyPaint.csproj.GenerateResource.cache
+D:\New folder\Paint\DNC1921_Ass03_MyPaint\obj\Debug\net8.0-windows\DNC1921_Ass03_MyPaint.GeneratedMSBuildEditorConfig.editorconfig
+D:\New folder\Paint\DNC1921_Ass03_MyPaint\obj\Debug\net8.0-windows\DNC1921_Ass03_MyPaint.AssemblyInfoInputs.cache
+D:\New folder\Paint\DNC1921_Ass03_MyPaint\obj\Debug\net8.0-windows\DNC1921_Ass03_MyPaint.AssemblyInfo.cs
+D:\New folder\Paint\DNC1921_Ass03_MyPaint\obj\Debug\net8.0-windows\DNC1921_Ass03_MyPaint.csproj.CoreCompileInputs.cache
+D:\New folder\Paint\DNC1921_Ass03_MyPaint\obj\Debug\net8.0-windows\DNC1921_Ass03_MyPaint.sourcelink.json
+D:\New folder\Paint\DNC1921_Ass03_MyPaint\bin\Debug\net8.0-windows\DNC1921_Ass03_MyPaint.exe
+D:\New folder\Paint\DNC1921_Ass03_MyPaint\bin\Debug\net8.0-windows\DNC1921_Ass03_MyPaint.deps.json
+D:\New folder\Paint\DNC1921_Ass03_MyPaint\bin\Debug\net8.0-windows\DNC1921_Ass03_MyPaint.runtimeconfig.json
+D:\New folder\Paint\DNC1921_Ass03_MyPaint\bin\Debug\net8.0-windows\DNC1921_Ass03_MyPaint.dll
+D:\New folder\Paint\DNC1921_Ass03_MyPaint\bin\Debug\net8.0-windows\DNC1921_Ass03_MyPaint.pdb
+D:\New folder\Paint\DNC1921_Ass03_MyPaint\obj\Debug\net8.0-windows\DNC1921_Ass03_MyPaint.dll
+D:\New folder\Paint\DNC1921_Ass03_MyPaint\obj\Debug\net8.0-windows\refint\DNC1921_Ass03_MyPaint.dll
+D:\New folder\Paint\DNC1921_Ass03_MyPaint\obj\Debug\net8.0-windows\DNC1921_Ass03_MyPaint.pdb
+D:\New folder\Paint\DNC1921_Ass03_MyPaint\obj\Debug\net8.0-windows\DNC1921_Ass03_MyPaint.genruntimeconfig.cache
+D:\New folder\Paint\DNC1921_Ass03_MyPaint\obj\Debug\net8.0-windows\ref\DNC1921_Ass03_MyPaint.dll
+D:\New folder\Paint\DNC1921_Ass03_MyPaint\obj\Debug\net8.0-windows\DNC1921_Ass03_MyPaint.AboutForm.resources
+D:\New folder\Paint\DNC1921_Ass03_MyPaint\obj\Debug\net8.0-windows\DNC1921_Ass03_MyPaint.Properties.Resources.resources

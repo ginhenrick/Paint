@@ -31,13 +31,13 @@
             splitContainer1 = new SplitContainer();
             groupBox3 = new GroupBox();
             txtY = new TextBox();
-            txtChuoi = new TextBox();
             txtX = new TextBox();
+            txtString = new TextBox();
             btnDraw = new Button();
-            label6 = new Label();
-            label7 = new Label();
             label8 = new Label();
-            btnColor = new Button();
+            label7 = new Label();
+            label6 = new Label();
+            btnStringColor = new Button();
             label5 = new Label();
             btnSave = new Button();
             groupBox2 = new GroupBox();
@@ -52,6 +52,7 @@
             label1 = new Label();
             panelKhungVe = new Panel();
             openFileDialog1 = new OpenFileDialog();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -70,6 +71,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            splitContainer1.Panel1.Controls.Add(button1);
             splitContainer1.Panel1.Controls.Add(groupBox3);
             splitContainer1.Panel1.Controls.Add(btnSave);
             splitContainer1.Panel1.Controls.Add(groupBox2);
@@ -80,98 +82,97 @@
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.Controls.Add(panelKhungVe);
-            splitContainer1.Size = new Size(878, 655);
-            splitContainer1.SplitterDistance = 291;
+            splitContainer1.Size = new Size(938, 684);
+            splitContainer1.SplitterDistance = 310;
             splitContainer1.TabIndex = 0;
             // 
             // groupBox3
             // 
             groupBox3.Controls.Add(txtY);
-            groupBox3.Controls.Add(txtChuoi);
             groupBox3.Controls.Add(txtX);
+            groupBox3.Controls.Add(txtString);
             groupBox3.Controls.Add(btnDraw);
-            groupBox3.Controls.Add(label6);
-            groupBox3.Controls.Add(label7);
             groupBox3.Controls.Add(label8);
-            groupBox3.Controls.Add(btnColor);
+            groupBox3.Controls.Add(label7);
+            groupBox3.Controls.Add(label6);
+            groupBox3.Controls.Add(btnStringColor);
             groupBox3.Controls.Add(label5);
             groupBox3.Font = new Font("Segoe UI", 12F);
-            groupBox3.Location = new Point(8, 334);
+            groupBox3.Location = new Point(8, 345);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(277, 251);
+            groupBox3.Size = new Size(277, 234);
             groupBox3.TabIndex = 8;
             groupBox3.TabStop = false;
-            groupBox3.Text = "String";
+            groupBox3.Text = "Draw String (1)";
             // 
             // txtY
             // 
-            txtY.Location = new Point(63, 124);
+            txtY.Location = new Point(169, 87);
             txtY.Name = "txtY";
-            txtY.Size = new Size(202, 34);
-            txtY.TabIndex = 32;
-            // 
-            // txtChuoi
-            // 
-            txtChuoi.Location = new Point(63, 164);
-            txtChuoi.Name = "txtChuoi";
-            txtChuoi.Size = new Size(202, 34);
-            txtChuoi.TabIndex = 31;
+            txtY.Size = new Size(86, 34);
+            txtY.TabIndex = 12;
             // 
             // txtX
             // 
-            txtX.Location = new Point(63, 84);
+            txtX.Location = new Point(48, 87);
             txtX.Name = "txtX";
-            txtX.Size = new Size(202, 34);
-            txtX.TabIndex = 30;
-            txtX.TextChanged += txtX_TextChanged;
+            txtX.Size = new Size(86, 34);
+            txtX.TabIndex = 11;
+            // 
+            // txtString
+            // 
+            txtString.Location = new Point(82, 135);
+            txtString.Name = "txtString";
+            txtString.Size = new Size(189, 34);
+            txtString.TabIndex = 10;
             // 
             // btnDraw
             // 
-            btnDraw.Location = new Point(81, 204);
+            btnDraw.Location = new Point(82, 181);
             btnDraw.Name = "btnDraw";
-            btnDraw.Size = new Size(94, 41);
-            btnDraw.TabIndex = 29;
+            btnDraw.Size = new Size(103, 47);
+            btnDraw.TabIndex = 9;
             btnDraw.Text = "Draw";
             btnDraw.UseVisualStyleBackColor = true;
-            btnDraw.Click += btnDraw_Click_1;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(-3, 167);
-            label6.Name = "label6";
-            label6.Size = new Size(64, 28);
-            label6.TabIndex = 27;
-            label6.Text = "String";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(18, 121);
-            label7.Name = "label7";
-            label7.Size = new Size(23, 28);
-            label7.TabIndex = 26;
-            label7.Text = "Y";
+            btnDraw.Click += button2_Click;
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(18, 84);
+            label8.Location = new Point(10, 141);
             label8.Name = "label8";
-            label8.Size = new Size(24, 28);
-            label8.TabIndex = 25;
-            label8.Text = "X";
+            label8.Size = new Size(64, 28);
+            label8.TabIndex = 7;
+            label8.Text = "String";
             // 
-            // btnColor
+            // label7
             // 
-            btnColor.BackColor = SystemColors.WindowText;
-            btnColor.FlatStyle = FlatStyle.Flat;
-            btnColor.Location = new Point(94, 41);
-            btnColor.Name = "btnColor";
-            btnColor.Size = new Size(161, 29);
-            btnColor.TabIndex = 4;
-            btnColor.UseVisualStyleBackColor = false;
-            btnColor.Click += btnColor_Click_1;
+            label7.AutoSize = true;
+            label7.Location = new Point(140, 90);
+            label7.Name = "label7";
+            label7.Size = new Size(23, 28);
+            label7.TabIndex = 6;
+            label7.Text = "Y";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(18, 90);
+            label6.Name = "label6";
+            label6.Size = new Size(24, 28);
+            label6.TabIndex = 5;
+            label6.Text = "X";
+            // 
+            // btnStringColor
+            // 
+            btnStringColor.BackColor = SystemColors.WindowText;
+            btnStringColor.FlatStyle = FlatStyle.Flat;
+            btnStringColor.Location = new Point(94, 41);
+            btnStringColor.Name = "btnStringColor";
+            btnStringColor.Size = new Size(161, 29);
+            btnStringColor.TabIndex = 4;
+            btnStringColor.UseVisualStyleBackColor = false;
+            btnStringColor.Click += btnStringColor_Click;
             // 
             // label5
             // 
@@ -184,7 +185,8 @@
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(71, 600);
+            btnSave.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSave.Location = new Point(18, 607);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(130, 43);
             btnSave.TabIndex = 8;
@@ -281,7 +283,7 @@
             cboType.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cboType.ForeColor = Color.Black;
             cboType.FormattingEnabled = true;
-            cboType.Items.AddRange(new object[] { "1. Text", "2. Line", "3. Rectangle", "3.1 Rectangle_BackwarDiagonal", "3.2 Rectangle_PathGradientBrush", "3.3 Rectangle_TextureBrush", "3.4 Rectangle_HatchBrush", "3.5 Fill Rectangle", "4. Ellipse", "4.1 Ellipse_BackwarDiagonal", "4.2 Ellipse_PathGradientBrush", "4.3 Ellipse_TextureBrush", "4.4 Ellipse_HatchBrush", "4.5 Fill Ellipse", "5. Parallelogram", "5.1 Parallelogram_BackwarDiagonal", "5.2 Parallelogram_PathGradientBrush", "5.3 Parallelogram_TextureBrush", "5.4 Parallelogram_HatchBrush", "5.5 Fill Parallelogram", "6. Rhombus", "6.1 Rhombus_BackwarDiagonal", "6.2 Rhombus_PathGradientBrush", "6.3 Rhombus_TextureBrush", "6.4 Rhombus_HatchBrush", "6.5 Fill Rhombus", "7. Circle", "7.1 Circle_BackwarDiagonal", "7.2 Circle_PathGradientBrush", "7.3 Circle_TextureBrush", "7.4 Circle_HatchBrush", "7.5 Fill Circle" });
+            cboType.Items.AddRange(new object[] { "1. String", "2. Line", "3. Rectangle", "3.1 Rectangle_Horizontal", "3.2 Rectangle_PathGradientBrush", "3.3 Rectangle_TextureBrush", "3.4 Rectangle_HatchBrush", "3.5 Fill Rectangle", "4. Ellipse", "4.1 Ellipse_Horizontal", "4.2 Ellipse_PathGradientBrush", "4.3 Ellipse_TextureBrush", "4.4 Ellipse_HatchBrush", "4.5 Fill Ellipse", "5. Parallelogram", "5.1 Parallelogram_Horizontal", "5.2 Parallelogram_PathGradientBrush", "5.3 Parallelogram_TextureBrush", "5.4 Parallelogram_HatchBrush", "5.5 Fill Parallelogram", "6. Rhombus", "6.1 Rhombus_Horizontal", "6.2 Rhombus_PathGradientBrush", "6.3 Rhombus_TextureBrush", "6.4 Rhombus_HatchBrush", "6.5 Fill Rhombus", "7. Circle", "7.1 Circle_Horizontal", "7.2 Circle_PathGradientBrush", "7.3 Circle_TextureBrush", "7.4 Circle_HatchBrush", "7.5 Fill Circle" });
             cboType.Location = new Point(12, 56);
             cboType.Name = "cboType";
             cboType.Size = new Size(273, 28);
@@ -302,11 +304,12 @@
             // panelKhungVe
             // 
             panelKhungVe.BackColor = Color.White;
+            panelKhungVe.BackgroundImageLayout = ImageLayout.None;
             panelKhungVe.Dock = DockStyle.Fill;
             panelKhungVe.ForeColor = SystemColors.ControlText;
             panelKhungVe.Location = new Point(0, 0);
             panelKhungVe.Name = "panelKhungVe";
-            panelKhungVe.Size = new Size(583, 655);
+            panelKhungVe.Size = new Size(624, 684);
             panelKhungVe.TabIndex = 0;
             panelKhungVe.Paint += panelKhungVe_Paint;
             panelKhungVe.MouseDown += panelKhungVe_MouseDown;
@@ -317,11 +320,22 @@
             // 
             openFileDialog1.FileName = "openFileDialog1";
             // 
+            // button1
+            // 
+            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.Location = new Point(155, 607);
+            button1.Name = "button1";
+            button1.Size = new Size(130, 43);
+            button1.TabIndex = 9;
+            button1.Text = "About";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // FrmMain
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(878, 655);
+            ClientSize = new Size(938, 684);
             Controls.Add(splitContainer1);
             Name = "FrmMain";
             Text = "My Paint";
@@ -360,14 +374,15 @@
         private OpenFileDialog openFileDialog1;
         private Button btnSave;
         private GroupBox groupBox3;
-        private Button btnColor;
+        private Button btnStringColor;
         private Label label5;
-        private TextBox txtY;
-        private TextBox txtChuoi;
-        private TextBox txtX;
         private Button btnDraw;
-        private Label label6;
-        private Label label7;
         private Label label8;
+        private Label label7;
+        private Label label6;
+        private TextBox txtY;
+        private TextBox txtX;
+        private TextBox txtString;
+        private Button button1;
     }
 }
